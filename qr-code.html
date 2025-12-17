@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Member - Zaky Gym</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .header h1 {
+            color: white;
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .content {
+            max-width: 500px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 15px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-bottom: 15px;
+        }
+
+        .btn-submit:hover {
+            background: #218838;
+        }
+
+        .btn-back {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 20px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+        }
+
+        .btn-back:hover {
+            background: #5a6fd8;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>📝 DAFTAR MEMBER</h1>
+    </div>
+    
+    <div class="content">
+        <form action="process_member.php" method="POST">
+            <div class="form-group">
+                <label>👤 Nama Lengkap</label>
+                <input type="text" name="nama_lengkap" placeholder="Masukkan nama lengkap" required>
+            </div>
+
+            <div class="form-group">
+                <label>📧 Email</label>
+                <input type="email" name="email" placeholder="contoh@email.com" required>
+            </div>
+
+            <div class="form-group">
+                <label>📱 No. Telepon</label>
+                <input type="tel" name="telepon" placeholder="08xxxxxxxxxx" required>
+            </div>
+
+            <div class="form-group">
+                <label>🎂 Tanggal Lahir</label>
+                <input type="date" name="tanggal_lahir" required>
+            </div>
+
+            <div class="form-group">
+                <label>⚧ Jenis Kelamin</label>
+                <select name="jenis_kelamin" required>
+                    <option value="">Pilih jenis kelamin</option>
+                    <option value="L">Laki-laki</option>
+                    <option value="P">Perempuan</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>💳 Paket Member</label>
+                <select name="paket_member" required>
+                    <option value="">Pilih paket member</option>
+                    <option value="harian">Harian - Rp 25.000</option>
+                    <option value="bulanan">Bulanan - Rp 350.000</option>
+                    <option value="3bulan">3 Bulan - Rp 900.000</option>
+                    <option value="vip">VIP 6 Bulan - Rp 1.500.000</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn-submit">✅ Daftar Sekarang</button>
+        </form>
+
+        <a href="index.html" class="btn-back">← Kembali ke Menu</a>
+    </div>
+</body>
+</html>

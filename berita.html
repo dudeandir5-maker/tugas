@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member - Zaky Gym</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .header h1 {
+            color: white;
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .member-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .member-table th,
+        .member-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .member-table th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .member-table tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        .status {
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .status.aktif {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status.expired {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .btn-back {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 20px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+        }
+
+        .btn-back:hover {
+            background: #5a6fd8;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .search-box:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>👤 MEMBER</h1>
+    </div>
+    
+    <div class="content">
+        <input type="text" class="search-box" placeholder="🔍 Cari member...">
+        
+        <table class="member-table">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Nama</th>
+                    <th>Email</th>
+                    <th>Telepon</th>
+                    <th>Paket</th>
+                    <th>Status</th>
+                    <th>Expired</th>
+                </tr>
+            </thead>
+            <tbody id="memberTableBody">
+                <!-- Data will be loaded here -->
+            </tbody>
+        </table>
+
+        <script>
+        function loadMembers() {
+            fetch('get_members.php')
+                .then(response => response.json())
+                .then(data => {
+                    const tbody = document.getElementById('memberTableBody');
+                    tbody.innerHTML = '';
+                    
+                    data.forEach((member, index) => {
+                        const row = `
+                            <tr>
+                                <td>${index + 1}</td>
+                                <td>${member.nama_lengkap}</td>
+                                <td>${member.email}</td>
+                                <td>${member.telepon}</td>
+                                <td>${member.paket_member}</td>
+                                <td><span class="status ${member.status}">${member.status === 'aktif' ? 'Aktif' : 'Expired'}</span></td>
+                                <td>${new Date(member.tanggal_expired).toLocaleDateString('id-ID')}</td>
+                            </tr>
+                        `;
+                        tbody.innerHTML += row;
+                    });
+                })
+                .catch(error => console.error('Error:', error));
+        }
+        
+        // Load members when page loads
+        window.onload = loadMembers;
+        </script>
+
+        <a href="index.html" class="btn-back">← Kembali ke Menu</a>
+    </div>
+</body>
+</html>

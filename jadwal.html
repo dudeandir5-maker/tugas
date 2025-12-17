@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jadwal - Zaky Gym</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .header h1 {
+            color: white;
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .content {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .schedule-item {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border: 1px solid black;
+        }
+
+        .schedule-item h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .schedule-item p {
+            color: #666;
+            margin: 5px 0;
+        }
+
+        .btn-back {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 20px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+        }
+
+        .btn-back:hover {
+            background: #5a6fd8;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>📅 JADWAL GYM</h1>
+    </div>
+    
+    <div class="content">
+        <div class="schedule-item">
+            <h3>Senin - Jumat</h3>
+            <p>⏰ Buka: 06:00 - 22:00</p>
+            <p>🏋️ Kelas Pagi: 07:00 - 09:00</p>
+            <p>🏋️ Kelas Sore: 17:00 - 19:00</p>
+        </div>
+
+        <div class="schedule-item">
+            <h3>Sabtu</h3>
+            <p>⏰ Buka: 07:00 - 20:00</p>
+            <p>🏋️ Kelas Pagi: 08:00 - 10:00</p>
+            <p>🏋️ Kelas Sore: 16:00 - 18:00</p>
+        </div>
+
+        <div class="schedule-item">
+            <h3>Minggu</h3>
+            <p>⏰ Buka: 08:00 - 18:00</p>
+            <p>🏋️ Kelas Pagi: 09:00 - 11:00</p>
+        </div>
+
+        <a href="index.html" class="btn-back">← Kembali ke Menu</a>
+    </div>
+</body>
+</html>
